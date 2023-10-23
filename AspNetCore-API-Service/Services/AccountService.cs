@@ -72,7 +72,8 @@ namespace AspNetCore_API_Service.Services
                     Phone = user.PhoneNumber,
                     Email = user.Email,
                     UserName = model.UserName,
-                    Token = token
+                    Token = token,
+                    ExpireDate = DateTime.Now.AddDays(1)
                 };
                 return user1;
             }

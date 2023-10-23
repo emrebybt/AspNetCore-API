@@ -1,4 +1,5 @@
 ﻿using AspNetCore_API_Entity.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -30,8 +31,9 @@ namespace AspNetCore_API_Service.Services
             {
                 claims.Add(new Claim(ClaimTypes.Role, item));
             }
+
             JwtSecurityToken token = new JwtSecurityToken(
-                issuer: JwtDefaults["ValidIssuer"],
+                issuer: JwtDefaults["ValidIssur"],
                 audience: JwtDefaults["ValidAudience"],
                 claims: claims, 
                 notBefore: DateTime.Now,

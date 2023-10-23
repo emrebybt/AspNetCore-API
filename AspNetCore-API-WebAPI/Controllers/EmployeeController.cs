@@ -17,8 +17,9 @@ namespace AspNetCore_API_WebAPI.Controllers
             _employeeService = employeeService;
         }
 
-        [Authorize(AuthenticationSchemes = "Bearer")]
+        
         [HttpGet]
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "Admin")]
         public async Task<IActionResult> GetAll()
         {
             var list = await _employeeService.GetAll();

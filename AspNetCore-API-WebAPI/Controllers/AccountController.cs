@@ -1,6 +1,10 @@
 ﻿using AspNetCore_API_Entity.DTOs;
 using AspNetCore_API_Entity.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace AspNetCore_API_WebAPI.Controllers
 {
@@ -25,6 +29,29 @@ namespace AspNetCore_API_WebAPI.Controllers
         public async Task<IActionResult> Login(LoginDto model)
         {
             var user = await _accountService.Login(model);
+            //if (user.Token != null)
+            //{
+            //    JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
+            //    var token = handler.ReadJwtToken(user.Token);
+            //    var clamsIdentity = new ClaimsIdentity(token.Claims, JwtBearerDefaults.AuthenticationScheme);
+            //    var autoProps = new AuthenticationProperties()
+            //    {
+            //        ExpiresUtc = user.ExpireDate,
+            //        IsPersistent = true,
+            //    };
+            //    try
+            //    {
+            //        await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(clamsIdentity), autoProps);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        var mesage = ex.Message;
+            //        throw;
+            //    }
+               
+
+            //}
+
             if (user.Token == null)
             {
                 return NotFound();

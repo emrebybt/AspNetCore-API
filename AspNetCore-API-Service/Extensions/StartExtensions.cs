@@ -27,8 +27,9 @@ namespace AspNetCore_API_Service.Extensions
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             });
-
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme
+            try
+            {
+                services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme
             ).AddJwtBearer(opt =>
             {
                 opt.RequireHttpsMetadata = false;
@@ -38,12 +39,20 @@ namespace AspNetCore_API_Service.Extensions
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = JwtDefaults["ValidIssuer"],
+                    ValidIssuer = JwtDefaults["ValidIssur"],
                     ValidAudience = JwtDefaults["ValidAudience"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
                     ClockSkew = TimeSpan.Zero
                 };
             });
+            }
+            catch (Exception ex)
+            {
+                var message = ex.ToString();
+                throw;
+            }
+            
+
 
             services.AddAuthorization();
 

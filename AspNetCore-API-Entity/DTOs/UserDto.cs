@@ -15,5 +15,6 @@ namespace AspNetCore_API_Entity.DTOs
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Token { get; set; }
+        public DateTime ExpireDate { get; set; }
     }
 }
