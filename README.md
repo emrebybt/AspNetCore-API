@@ -53,7 +53,7 @@ API project using Asp.Net Core technology and MVC architecture with a JWT token 
 | `UserName` | `string` | UserName |
 | `Password` | `string` | Password |
 
-#### Tüm öğeleri getir
+#### Tüm öğeleri getir / Get All
 
 ```http
   POST api/Employee
@@ -68,7 +68,7 @@ API project using Asp.Net Core technology and MVC architecture with a JWT token 
 | `Email` | `string` | Email |
 
 
-#### Öğeyi getir
+#### Id'sine göre öğeyi getir / Get By Id
 
 ```http
   GET /api/Employee/${id}
