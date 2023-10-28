@@ -23,7 +23,7 @@ API project using Asp.Net Core technology and MVC architecture with a JWT token 
 
 
   
-## API Kullanımı
+## API Kullanımı / API Usage
 
 #### Kayıt Ol / Register
 
